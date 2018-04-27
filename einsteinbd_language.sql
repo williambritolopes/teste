@@ -1,0 +1,2 @@
+INSERT INTO einsteinbd.language (idiom, created, updated, deleted) VALUES ('Português', '2017-08-01 17:24:13', null, null);
+INSERT INTO einsteinbd.language (idiom, created, updated, deleted) VALUES ('Ingles', '2017-08-01 17:24:13', null, null);

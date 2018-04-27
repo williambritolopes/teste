@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.comment (user, comment, status, created, updated, deleted, content) VALUES (2, 'Olha primeiro comentario o/', 1, '2017-08-01 17:35:53', null, null, 1);

@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.content (magazine, title, file, created, updated, deleted) VALUES (1, 'Primeiro conteudo da revista WOW', 'Nao tem arquivo ainda teste', '2017-08-01 17:35:13', null, null);

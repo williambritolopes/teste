@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+        <div class="page-header"> 
+            <h1>Magazine</h1>
+        </div>
+        <table class="table table-responsive">
+
+        <tbody>
+            <tr>
+                <th>Number</th>
+                <td>{{ magazine.number }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ magazine.description }}</td>
+            </tr>
+            <tr>
+                <th>Andresscover</th>
+                <td>{{ magazine.andressCover }}</td>
+            </tr>
+            <tr>
+                <th>Andressfeatured</th>
+                <td>{{ magazine.andressFeatured }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if magazine.created %}{{ magazine.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if magazine.updated %}{{ magazine.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{% if magazine.deleted %}{{ magazine.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ magazine.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_magazine_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('einstein_magazine_edit', { 'id': magazine.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

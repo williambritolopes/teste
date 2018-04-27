@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div class="page-header"> 
+            <h1>Magazines list</h1>
+        </div>
+        <table class="table table-responsive">
+
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Description</th>
+                    <th>Andresscover</th>
+                    <th>Andressfeatured</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Deleted</th>
+                    <th>Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for magazine in magazines %}
+                <tr>
+                    <td><a href="{{ path('einstein_magazine_show', { 'id': magazine.id }) }}">{{ magazine.number }}</a></td>
+                    <td>{{ magazine.description }}</td>
+                    <td>{{ magazine.andressCover }}</td>
+                    <td>{{ magazine.andressFeatured }}</td>
+                    <td>{% if magazine.created %}{{ magazine.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if magazine.updated %}{{ magazine.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if magazine.deleted %}{{ magazine.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ magazine.id }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('einstein_magazine_show', { 'id': magazine.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('einstein_magazine_edit', { 'id': magazine.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+    <ul>
+        <li>
+            <a href="{{ path('einstein_magazine_new') }}">Create a new magazine</a>
+        </li>
+    </ul>
+{% endblock %}

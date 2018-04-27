@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.favorite (user, magazine, created, updated, deleted) VALUES (2, 1, '2017-08-01 17:40:06', null, null);

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="page-header"> 
+        <h1>Contents list</h1>
+    </div>
+    <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>Issn</th>
+                <th>Articleid</th>
+                <th>Contrib</th>
+                <th>Autornotes</th>
+                <th>Pubdate</th>
+                <th>Abstract</th>
+                <th>Keywords</th>
+                <th>Volume</th>
+                <th>Issue</th>
+                <th>Fpage</th>
+                <th>Lpage</th>
+                <th>Contentpt</th>
+                <th>Contenten</th>
+                <th>Referencies</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Deleted</th>
+                <th>Content</th>
+                <th>File</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for content in contents %}
+            <tr>
+                <td><a href="{{ path('einstein_content_show', { 'id': content.id }) }}">{{ content.issn }}</a></td>
+                <td>{{ content.articleId }}</td>
+                <td>{{ content.contrib }}</td>
+                <td>{{ content.autorNotes }}</td>
+                <td>{{ content.pubDate }}</td>
+                <td>{{ content.abstract }}</td>
+                <td>{{ content.keywords }}</td>
+                <td>{{ content.volume }}</td>
+                <td>{{ content.issue }}</td>
+                <td>{{ content.fpage }}</td>
+                <td>{{ content.lpage }}</td>
+                <td>{{ content.contentPt }}</td>
+                <td>{{ content.contentEn }}</td>
+                <td>{{ content.referencies }}</td>
+                <td>{{ content.title }}</td>
+                <td>{% if content.created %}{{ content.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if content.updated %}{{ content.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if content.deleted %}{{ content.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ content.content }}</td>
+                <td>{{ content.file }}</td>
+                <td>{{ content.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_content_show', { 'id': content.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_content_edit', { 'id': content.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_content_new') }}">Create a new content</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div class="page-header"> 
+            <h1>Messages list</h1>
+        </div>
+        <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Message</th>
+                <th>Createddate</th>
+                <th>Updateddate</th>
+                <th>Deleteddate</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td><a href="{{ path('einstein_message_show', { 'id': message.id }) }}">{{ message.message }}</a></td>
+                <td>{% if message.createdDate %}{{ message.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if message.updatedDate %}{{ message.updatedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if message.deletedDate %}{{ message.deletedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ message.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_message_show', { 'id': message.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_message_edit', { 'id': message.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_message_new') }}">Create a new message</a>
+        </li>
+    </ul>
+{% endblock %}

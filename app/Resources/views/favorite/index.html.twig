@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+        <div class="page-header"> 
+            <h1>Favorites list</h1>
+        </div>
+        <table class="table table-responsive">
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Deleted</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for favorite in favorites %}
+            <tr>
+                <td><a href="{{ path('einstein_favorite_show', { 'id': favorite.id }) }}">{{ favorite.id }}</a></td>
+                <td>{% if favorite.created %}{{ favorite.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if favorite.updated %}{{ favorite.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if favorite.deleted %}{{ favorite.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_favorite_show', { 'id': favorite.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_favorite_edit', { 'id': favorite.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_favorite_new') }}">Create a new favorite</a>
+        </li>
+    </ul>
+{% endblock %}

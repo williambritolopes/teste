@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Content</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Issn</th>
+                <td>{{ content.issn }}</td>
+            </tr>
+            <tr>
+                <th>Articleid</th>
+                <td>{{ content.articleId }}</td>
+            </tr>
+            <tr>
+                <th>Contrib</th>
+                <td>{{ content.contrib }}</td>
+            </tr>
+            <tr>
+                <th>Autornotes</th>
+                <td>{{ content.autorNotes }}</td>
+            </tr>
+            <tr>
+                <th>Pubdate</th>
+                <td>{{ content.pubDate }}</td>
+            </tr>
+            <tr>
+                <th>Abstract</th>
+                <td>{{ content.abstract }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ content.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Volume</th>
+                <td>{{ content.volume }}</td>
+            </tr>
+            <tr>
+                <th>Issue</th>
+                <td>{{ content.issue }}</td>
+            </tr>
+            <tr>
+                <th>Fpage</th>
+                <td>{{ content.fpage }}</td>
+            </tr>
+            <tr>
+                <th>Lpage</th>
+                <td>{{ content.lpage }}</td>
+            </tr>
+            <tr>
+                <th>Contentpt</th>
+                <td>{{ content.contentPt }}</td>
+            </tr>
+            <tr>
+                <th>Contenten</th>
+                <td>{{ content.contentEn }}</td>
+            </tr>
+            <tr>
+                <th>Referencies</th>
+                <td>{{ content.referencies }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ content.title }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if content.created %}{{ content.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if content.updated %}{{ content.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{% if content.deleted %}{{ content.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ content.content }}</td>
+            </tr>
+            <tr>
+                <th>File</th>
+                <td>{{ content.file }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ content.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_content_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('einstein_content_edit', { 'id': content.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

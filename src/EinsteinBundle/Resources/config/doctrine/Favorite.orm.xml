@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EinsteinBundle\Entity\Favorite" table="favorite">
+    <indexes>
+      <index name="favorite_content_id_fk" columns="magazine"/>
+      <index name="favorite_tbl_user_ID_fk" columns="user"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="favorite_id_uindex" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="created" type="datetime" column="created" nullable="false"/>
+    <field name="updated" type="datetime" column="updated" nullable="true"/>
+    <field name="deleted" type="datetime" column="deleted" nullable="true"/>
+    <many-to-one field="user" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="magazine" target-entity="Content" fetch="LAZY">
+      <join-columns>
+        <join-column name="magazine" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

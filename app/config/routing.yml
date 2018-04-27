@@ -1,0 +1,61 @@
+einstein:
+    resource: "@EinsteinBundle/Controller/"
+    type:     annotation
+    prefix:   /
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    
+einstein_einstein_comment:
+    resource: "@EinsteinBundle/Resources/config/routing/comment.php"
+    prefix:   /einstein/comment
+
+einstein_einstein_content:
+    resource: "@EinsteinBundle/Resources/config/routing/content.php"
+    prefix:   /einstein/content
+
+einstein_einstein_favorite:
+    resource: "@EinsteinBundle/Resources/config/routing/favorite.php"
+    prefix:   /einstein/favorite
+
+einstein_einstein_gender:
+    resource: "@EinsteinBundle/Resources/config/routing/gender.php"
+    prefix:   /einstein/gender
+
+einstein_einstein_language:
+    resource: "@EinsteinBundle/Resources/config/routing/language.php"
+    prefix:   /einstein/language
+
+einstein_einstein_magazine:
+    resource: "@EinsteinBundle/Resources/config/routing/magazine.php"
+    prefix:   /einstein/magazine
+
+einstein_einstein_message:
+    resource: "@EinsteinBundle/Resources/config/routing/message.php"
+    prefix:   /einstein/message
+
+einstein_einstein_notification:
+    resource: "@EinsteinBundle/Resources/config/routing/notification.php"
+    prefix:   /einstein/notification
+
+einstein_einstein_status:
+    resource: "@EinsteinBundle/Resources/config/routing/status.php"
+    prefix:   /einstein/status
+
+einstein_einstein_type:
+    resource: "@EinsteinBundle/Resources/config/routing/type.php"
+    prefix:   /einstein/type
+
+einstein_einstein_typeuser:
+    resource: "@EinsteinBundle/Resources/config/routing/typeuser.php"
+    prefix:   /einstein/typeuser
+
+einstein_einstein_user:
+    resource: "@EinsteinBundle/Resources/config/routing/user.php"
+    prefix:   /einstein/user
+
+einstein_einstein_version:
+    resource: "@EinsteinBundle/Resources/config/routing/version.php"
+    prefix:   /einstein/version
+
+

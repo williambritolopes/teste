@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="page-header"> 
+            <h1>Typeusers list</h1>
+        </div>
+        <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Deleted</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeUser in typeUsers %}
+            <tr>
+                <td><a href="{{ path('einstein_typeuser_show', { 'id': typeUser.id }) }}">{{ typeUser.type }}</a></td>
+                <td>{% if typeUser.created %}{{ typeUser.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if typeUser.updated %}{{ typeUser.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if typeUser.deleted %}{{ typeUser.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ typeUser.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_typeuser_show', { 'id': typeUser.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_typeuser_edit', { 'id': typeUser.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_typeuser_new') }}">Create a new typeUser</a>
+        </li>
+    </ul>
+{% endblock %}

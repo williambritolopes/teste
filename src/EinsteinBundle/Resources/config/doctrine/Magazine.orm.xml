@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EinsteinBundle\Entity\Magazine" table="magazine">
+    <indexes>
+      <index name="magazine_language_id_fk" columns="language"/>
+      <index name="magazine_status_id_fk" columns="status"/>
+      <index name="magazine_version_id_fk" columns="vol"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="magazine_id_uindex" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="number" type="integer" column="number" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="description" type="string" column="description" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="andressCover" type="string" column="andress_cover" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="andressFeatured" type="string" column="andress_featured" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="created" type="datetime" column="created" nullable="false"/>
+    <field name="updated" type="datetime" column="updated" nullable="true"/>
+    <field name="deleted" type="datetime" column="deleted" nullable="true"/>
+    <many-to-one field="vol" target-entity="Version" fetch="LAZY">
+      <join-columns>
+        <join-column name="vol" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="status" target-entity="Status" fetch="LAZY">
+      <join-columns>
+        <join-column name="status" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="language" target-entity="Language" fetch="LAZY">
+      <join-columns>
+        <join-column name="language" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,2 @@
+INSERT INTO einsteinbd.gender (gender, created_date, update_date, deleted_date) VALUES ('Masculino', '2017-08-01 17:09:38', null, null);
+INSERT INTO einsteinbd.gender (gender, created_date, update_date, deleted_date) VALUES ('Feminino', '2017-08-01 17:10:16', null, null);

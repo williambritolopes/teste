@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <div class="page-header"> 
+        <h1>Users list</h1>
+    </div>
+    <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Nick</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Cellphone</th>
+                <th>Specialty</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Deleted</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('einstein_user_show', { 'id': user.id }) }}">{{ user.name }}</a></td>
+                <td>{{ user.nick }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.cellPhone }}</td>
+                <td>{{ user.specialty }}</td>
+                <td>{% if user.created %}{{ user.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.updated %}{{ user.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.deleted %}{{ user.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ user.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_user_new') }}">Create a new user</a>
+        </li>
+    </ul>
+{% endblock %}

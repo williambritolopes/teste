@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EinsteinBundle\Entity\Comment" table="comment">
+    <indexes>
+      <index name="comment_status_id_fk" columns="status"/>
+      <index name="comment_tbl_user_ID_fk" columns="user"/>
+      <index name="comment_content_id_fk" columns="content"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="comment_id_uindex" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="comment" type="string" column="comment" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="created" type="datetime" column="created" nullable="false"/>
+    <field name="updated" type="datetime" column="updated" nullable="true"/>
+    <field name="deleted" type="datetime" column="deleted" nullable="true"/>
+    <many-to-one field="user" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="status" target-entity="Status" fetch="LAZY">
+      <join-columns>
+        <join-column name="status" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="content" target-entity="Content" fetch="LAZY">
+      <join-columns>
+        <join-column name="content" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

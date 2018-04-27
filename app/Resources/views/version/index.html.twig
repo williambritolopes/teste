@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="page-header"> 
+            <h1>Versions list</h1>
+        </div>
+        <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Version</th>
+                <th>Created</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for version in versions %}
+            <tr>
+                <td><a href="{{ path('einstein_version_show', { 'id': version.id }) }}">{{ version.version }}</a></td>
+                <td>{% if version.created %}{{ version.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ version.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_version_show', { 'id': version.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_version_edit', { 'id': version.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_version_new') }}">Create a new version</a>
+        </li>
+    </ul>
+{% endblock %}

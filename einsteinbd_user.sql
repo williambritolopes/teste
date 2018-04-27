@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.user (name, type, nick, password, email, cell_phone, specialty, created, updated, deleted, gender) VALUES ('William de Brito Lopes', 1, 'williamBrito', 'Ap050604', 'william.de.brito.lopes@hotmail.com', '14981224433', 1, '2017-08-01 17:09:17', null, null, 1);

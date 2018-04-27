@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.version (version, type, created) VALUES ('1', 1, '2017-08-01 17:21:42');

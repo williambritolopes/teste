@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gender</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Gender</th>
+                <td>{{ gender.gender }}</td>
+            </tr>
+            <tr>
+                <th>Createddate</th>
+                <td>{% if gender.createdDate %}{{ gender.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedate</th>
+                <td>{% if gender.updateDate %}{{ gender.updateDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deleteddate</th>
+                <td>{% if gender.deletedDate %}{{ gender.deletedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ gender.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_gender_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('einstein_gender_edit', { 'id': gender.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

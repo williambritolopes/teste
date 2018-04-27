@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header"> 
+            <h1>Genders list</h1>
+        </div>
+        <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>Gender</th>
+                <th>Createddate</th>
+                <th>Updatedate</th>
+                <th>Deleteddate</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gender in genders %}
+            <tr>
+                <td><a href="{{ path('einstein_gender_show', { 'id': gender.id }) }}">{{ gender.gender }}</a></td>
+                <td>{% if gender.createdDate %}{{ gender.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if gender.updateDate %}{{ gender.updateDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if gender.deletedDate %}{{ gender.deletedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ gender.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_gender_show', { 'id': gender.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_gender_edit', { 'id': gender.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_gender_new') }}">Create a new gender</a>
+        </li>
+    </ul>
+{% endblock %}

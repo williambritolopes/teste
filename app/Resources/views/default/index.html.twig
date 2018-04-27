@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% stylesheets
+    '@bootstrap_css'
+%}
+
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+
+{% endstylesheets %}
+
+</head>
+
+  <body>
+
+<div class="container">
+
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1><span>Bem vindo</span> Einstein </h1>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+{% javascripts
+    '@jquery'
+    '@bootstrap_js'
+%}
+
+    <script src="{{ asset_url }}"></script>
+
+{% endjavascripts %}
+
+    </body>
+</html>

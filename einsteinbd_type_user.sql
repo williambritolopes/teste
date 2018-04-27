@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.type_user (type, created, updated, deleted) VALUES ('Adminstrador', '2017-08-01 17:13:24', null, null);

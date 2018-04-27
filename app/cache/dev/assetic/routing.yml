@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Users/lopes/Projetos/novo-api/EinsteinAppXML/EinsteinApi/app/config/routing_dev.yml

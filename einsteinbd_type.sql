@@ -1,0 +1,1 @@
+INSERT INTO einsteinbd.type (type, created, updated, deleted) VALUES ('Revista', '2017-08-01 17:06:14', null, null);

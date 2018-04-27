@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Status</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Status</th>
+                <td>{{ status.status }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if status.created %}{{ status.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if status.updated %}{{ status.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{% if status.deleted %}{{ status.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ status.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_status_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('einstein_status_edit', { 'id': status.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

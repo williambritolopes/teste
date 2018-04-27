@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+  <div class="page-header"> 
+        <h1>Languages list</h1>
+        </div>
+        <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>Idiom</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Deleted</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for language in languages %}
+            <tr>
+                <td><a href="{{ path('einstein_language_show', { 'id': language.id }) }}">{{ language.idiom }}</a></td>
+                <td>{% if language.created %}{{ language.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if language.updated %}{{ language.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if language.deleted %}{{ language.deleted|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ language.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('einstein_language_show', { 'id': language.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('einstein_language_edit', { 'id': language.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('einstein_language_new') }}">Create a new language</a>
+        </li>
+    </ul>
+{% endblock %}
